@@ -1,190 +1,34 @@
-<img align="center" src="https://postimg.aliavv.com/mbp/eultm.png" />
 
-# hexo-generator-podcasts
+原工程
+https://github.com/bestony/hexo-generator-podcasts/
 
-![](https://img.shields.io/npm/v/hexo-generator-podcasts)![](https://img.shields.io/npm/dm/hexo-generator-podcasts) ![NPM](https://img.shields.io/npm/l/hexo-generator-podcasts)
 
-The plugin make your hexo can use as a podcast site.
+1.
+用_feed.xml替换掉template/feed.xml
 
-## News
-To know new features and bugfixes, please visit [releases](https://github.com/bestony/hexo-generator-podcasts/releases) index.
-## Features 
-
-- Multiple Podcast Support
-- Custom Podcast Path Support
-- Apple Podcast Spec
-- short code for web player: your can insert `{% podplayer %}` into your article for web player
-
-## Demo 
-
-- Podcast Site: https://productivity.wiki/
-- Podcast Feed: https://productivity.wiki/feed/podcast
-
-## Installation
-go to the root folder of your hexo blog(contains `\themes`, `index.html`, `\node_modules`, etc.).
-
-unix/linux terminal run
-
-```bash
-npm install hexo-generator-podcasts --save
-```
-## Options
-open root _config.yml
-
-add 
-### For Single Podcast
-
-```yaml
-podcasts:
-  name: "podcast"
-  path: "feed/podcast"
-  title: "生产力维基"
-  subtitle: "xxx"
-  description: "一个关注时间管理、知识管理、目标管理、项目管理、精力管理和个人效能的播客. 欢迎一同讨论生产力工具的心得！"
-  image: "img.jpeg"
-  language: "zh-CN"
-  category:
-    - Technology
-    - Business
-      - Management & Marketing
-    - Technology
-      - Tech News
-  explicit: "clean" 
-  author: "白宦成"
-  link: https://productivity.wiki/
-  owner:
-    name: "白宦成"
-    email: xiqingongzi@gmail.com
-  type: episodic
-  copyright: 生产力维基
-  updatePeriod: hourly
-  updateFrequency: 1
-```
-
-- **name**: podcast name, also **use as podcast category**
-- **path**: podcast feed path
-- **title**: podcast title
-- **subtitle**: podcast subtitle
-- **description**: podcast
-- **image**: podcast cover image, you can put image under `source` directory and put filename here.
-- **language**: podcast language, [ISO-639 style](http://www.loc.gov/standards/iso639-2/php/code_list.php),if not set, value is "en-US"
-- **category**: podcast category.
-- **explicit**: suitable for children? if not set, value is "clean"
-- **author**: podcast author
-- **link**: podcast homepage
-- **owner**: podcast owner with name & email
-- **type**: podcast type, option can be "episodic" or "serial",if not set, value is "episodic"
-- **copyright**: copyright text
-- **updatePeriod**: update period, if not set, value is "hourly"
-- **updateFrequency**: updateFrequency, if not set, value is 1
-### For Multiple Podcast
+2.注意feed.xml这里hardcode一下，以后有空我会解决这个bug，主要nodejs代码不熟。
 
 ```
-podcasts:
-  - name: "podcast"
-    path: "feed/podcast"
-    title: "生产力维基"
-    subtitle: "xxx"
-    description: "一个关注时间管理、知识管理、目标管理、项目管理、精力管理和个人效能的播客. 欢迎一同讨论生产力工具的心得！"
-    image: "img.jpeg"
-    language: "zh-CN"
-    category:
-      - Technology
-      - Business
-        - Management & Marketing
-      - Technology
-        - Tech News
-    explicit: "clean"
-    author: "白宦成"
-    link: https://productivity.wiki/
-    owner:
-      name: "白宦成"
-      email: xiqingongzi@gmail.com
-    type: episodic
-    copyright: 生产力维基
-    updatePeriod: hourly
-    updateFrequency: 1
-  - name: "podcast"
-    path: "feed/podcast2"
-    title: "生产力维基"
-    subtitle: "xxx"
-    description: "一个关注时间管理、知识管理、目标管理、项目管理、精力管理和个人效能的播客. 欢迎一同讨论生产力工具的心得！"
-    image: "img.jpeg"
-    language: "zh-CN"
-    category:
-      - Technology
-      - Business
-        - Management & Marketing
-      - Technology
-        - Tech News
-    explicit: "clean"
-    author: "白宦成"
-    link: https://productivity.wiki/
-    owner:
-      name: "白宦成"
-      email: xiqingongzi@gmail.com
-    type: episodic
-    copyright: 生产力维基
-    updatePeriod: hourly
-    updateFrequency: 1
+<!-- 这个地方hardcode一下 -->
+    <itunes:category text="Arts">
+      <itunes:category text="Design"/>
+      <itunes:category text="Visual Arts"/>
+    </itunes:category>
+    <itunes:category text="Technology">
+      <itunes:category text="Tech News"/>
+    </itunes:category>
 ```
 
-## Episode Information
-
-you can create a new episode by run `hexo new episode [title]`, it will have some default metadata in the front-matter of your post.
-
+_config.yml 这个地方代码失效，因为直接在feed.xmlhardcode了
 ```
----
-title: {{ title }}
-date: {{ date }}
-tags:
-category: podcast
-media: /path/to/media # placed under //URL/to/static/resources/path/to/media
-image: /path/to/episode/image # same as above, but somehow itunes doesn't support episode image as it should do
-length: 6989
-type: audio/mpeg
-duration: XX:YY:AA
-chapter:
-  [
-    ["00:00:00.000", "Title 1"],
-    ["OTHER STARTTIME", "Another title"]
-  ]
-layout: podcast
----
-```
-- **title**: episode title
-- **date**: episode publish data
-- **category**: episode category,  also **use as podcast name in config file**
-- **media**: mp3/wav file path, you can put it on your `source`  directory and put filename here.
-  for example, if your file name is `episode1.mp3`, this option is `episode1.mp3`
-  
-```  
-├── source
-│   ├── _posts
-│   ├── about
-│   ├── archive
-│   └── episode1.mp3
+category: 
+    - Arts
+    - Design
 ```
 
-- **image**: episode coverimage
-- **length**: episode file length, in bytes.
-- **type**: file type
-- **duration**: episode duration
-- **chapter**: episode chapter
-- **layout**: default, set as podcast.
 
-## FAQ
-**What's this plugin supposed to do?**
+好了这样就解决podcast的验证问题了
 
-This plugin is used for generating a podcast feed file from your Hexo blog.
 
-**How to add Web Podcast Player?**
 
-add `{% podplayer %}` input any where you want to insert audio player.
 
-## Future Works
-
-1. Buildin Music Player.
-
-## LICENSE
-[GPL](LICENSE)
