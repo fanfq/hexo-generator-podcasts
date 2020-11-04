@@ -1,12 +1,19 @@
+解决podcast 收录验证问题，验证网址
+https://podba.se/validate/?url=https://fm.fanfq.com/feed/podcast/
+
+解决后的效果如下
+![preview](validate.png)
+
 
 原工程
 https://github.com/bestony/hexo-generator-podcasts/
 
+以下是修改步骤
 
 1.
-用_feed.xml替换掉template/feed.xml
+用本工程源码中 `_feed.xml` 替换掉原工程 `template/feed.xml`
 
-2.注意feed.xml这里hardcode一下，以后有空我会解决这个bug，主要nodejs代码不熟。
+2.注意新的`feed.xml`这里是hardcode，以后有空我会解决这个bug，主要nodejs代码不熟。
 
 ```
 <!-- 这个地方hardcode一下 -->
@@ -19,7 +26,7 @@ https://github.com/bestony/hexo-generator-podcasts/
     </itunes:category>
 ```
 
-_config.yml 这个地方代码失效，因为直接在feed.xmlhardcode了
+hexo 的`_config.yml` 这个地方代码失效，因为直接在`feed.xml`hardcode了
 ```
 category: 
     - Arts
