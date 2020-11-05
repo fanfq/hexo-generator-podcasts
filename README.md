@@ -34,7 +34,31 @@ category:
 ```
 
 
+文章结构示例
+```
+---
+title: "#4.整装待发扬帆起航，拒绝消费主义"  #文章标题
+category: podcast #固定值
+media: https://dl.fanfq.com/fm.fanfq.com/004.mp3  #固定值，建议放CDN 
+image: https://dl.fanfq.com/fm.fanfq.com/fred_1024x1024_fm.jpg   #固定值，建议放CDN 
+duration: 600  #mp3文件播放时长，这里单位是秒
+type: audio/mpeg #固定值
+length: 11924508  #mp3文件的字节数，右键文件查看所占磁盘空间
+layout: podcast  #固定值
+date: 2020-11-03 21:21:57 #创建时间
+tags: [播客,消费主义] #文章标签
+urlname: vol4 #比如我这里最终文章的链接是 https://fm.fanfq.com/vol4.html
+description: 轻奢，小资，精致，这些词是不是听起来有点耳熟?在我看来这些词都是消费主义的簇拥者自己创造出来的文化，通过这种方式给消费者洗脑最终促使消费者买单。 #这个描述，为了填充feed用而不是正文
+---
+
+{% podplayer %} #播放器
+
+文章正文...
+```
+
 好了这样就解决podcast的验证问题了
+
+我的播客内容分发站 https://fm.fanfq.com
 
 
 
