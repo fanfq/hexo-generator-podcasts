@@ -139,17 +139,17 @@
 			<comments>
 				0
 			</comments>
-			<description><![CDATA[{{episode.more| noControlChars | strip_html | xml_escape }}]]></description>
+			<description><![CDATA[{{episode.description }}]]></description>
 				
 			<encoded>
-				{{episode.more| noControlChars | strip_html | xml_escape }}
+				<![CDATA[{{episode.description }}]]>
 			</encoded>
-			<enclosure url="{{episode.media|get_url}}" length="{{length}}" type="audio/mpeg" />
+			<enclosure url="{{episode.media|get_url}}" length="{{episode.length}}" type="audio/mpeg" />
 			<subtitle>
-				{{episode.more| noControlChars | strip_html | xml_escape }}
+				<![CDATA[{{episode.description }}]]>
 			</subtitle>
 			<summary>
-				{{episode.content| noControlChars | strip_html | xml_escape }}
+				<![CDATA[{{episode.description }}]]>
 			</summary>
 			<image href="{{episode.image|get_url}}" />
 			<itunes:explicit>no</itunes:explicit>
