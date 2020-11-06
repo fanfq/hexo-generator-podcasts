@@ -13,7 +13,9 @@
 		<title>
 			{{title|xml_escape}}
 		</title>
+		<!-- 
 		<link href="{{feedUrl}}" rel="self" type="application/rss+xml" />
+		 -->
 		<link>
 			{{homepage}}
 		</link>
@@ -83,7 +85,7 @@
 			{{owner.email}} ({{owner.name}})
 		</managingEditor>
 		<copyright>
-			{{copyright}}
+			&#169; {{copyright}}
 		</copyright>
 		<subtitle>
 			{{subtitle}}
