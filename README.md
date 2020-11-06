@@ -10,8 +10,7 @@ https://github.com/bestony/hexo-generator-podcasts/
 
 以下是修改步骤
 
-1.
-用本工程源码中 `_feed.xml` 替换掉原工程 `template/feed.xml`
+1.用本工程源码中 `_feed.xml` 替换掉原工程 `template/feed.xml`
 
 2.注意新的`feed.xml`这里是hardcode，以后有空我会解决这个bug，主要nodejs代码不熟。
 
