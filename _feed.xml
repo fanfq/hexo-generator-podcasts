@@ -13,12 +13,23 @@
 		<title>
 			{{title|xml_escape}}
 		</title>
-		<!-- 
-		<link href="{{feedUrl}}" rel="self" type="application/rss+xml" />
-		 -->
+		
 		<link>
 			{{homepage}}
 		</link>
+		
+		<!-- 
+		在网站的首页中要添加下面这个，以便google收录
+		<link type="application/rss+xml" rel="alternate" title="Fred Channel FM" href="https://fm.fanfq.com/feed/podcast/"/>
+		为了图简单，我直接启用了主题配置中的这个参数，并在head.njk中hardcode了
+		custom_file_path:
+  			head: source/_data/head.njk
+		 -->
+		 <!-- add google support -->
+		<googleplay:owner>{{owner.email}}</googleplay:owner>
+	    <googleplay:author>{{owner.name}}</googleplay:author>
+	    <googleplay:image href="{{logo|get_url}}"/>
+		 
 		<description>
 			{{description|xml_escape}}
 		</description>
