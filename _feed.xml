@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+	xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/"
+	xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
 	<channel>
 		<title>
 			{{title|xml_escape}}
@@ -54,13 +63,13 @@
 		<explicit>
 			{{explicit}}
 		</explicit>
-		
+
 		<itunes:author>{{owner.name}}</itunes:author>
-    <itunes:owner>
-        <itunes:name>{{owner.name}}</itunes:name>
-        <itunes:email>{{owner.email}}</itunes:email>
-    </itunes:owner>
-    
+		<itunes:owner>
+			<itunes:name>{{owner.name}}</itunes:name>
+			<itunes:email>{{owner.email}}</itunes:email>
+		</itunes:owner>
+
 		<image href="{{logo|get_url}}" />
 		<owner>
 			<name>
@@ -74,12 +83,12 @@
 			{{owner.email}} ({{owner.name}})
 		</managingEditor>
 		<copyright>
-			{{owner.copyright}}
+			{{copyright}}
 		</copyright>
 		<subtitle>
 			{{subtitle}}
 		</subtitle>
-		<itunes:subtitle>{{subtitle}}</itunes:subtitle>  
+		<itunes:subtitle>{{subtitle}}</itunes:subtitle>
 		<image>
 			<title>
 				{{title|xml_escape}}
@@ -91,28 +100,24 @@
 				{{homepage}}
 			</link>
 		</image>
-		<itunes:image href="{{logo|get_url}}"/>
-		
-		<!--
-		{% for item in category %}
-		<category text="{{item.top}}">
-			{% if item.sub %}
-			<category text="{{item.sub}}">
-				{%endif%}
-			</category>
-			
-		</category>
-		{% endfor %}
-		  -->
-		<!-- 这个地方hardcode一下 -->
+		<itunes:image href="{{logo|get_url}}" />
+
+		<!-- {% for item in category %} <category text="{{item.top}}"> {% if item.sub 
+			%} <category text="{{item.sub}}"> {%endif%} </category> </category> {% endfor 
+			%} -->
+		<!-- 这个地方hardcode一下 https://help.apple.com/itc/podcasts_connect/#/itc9267a2f12 -->
+		<itunes:category text="Society &amp; Culture">
+			<itunes:category text="Personal Journals" />
+		</itunes:category>
+
 		<itunes:category text="Arts">
-      <itunes:category text="Design"/>
-      <itunes:category text="Visual Arts"/>
-    </itunes:category>
-    <itunes:category text="Technology">
-      <itunes:category text="Tech News"/>
-    </itunes:category>
-		
+			<itunes:category text="Design" />
+			<itunes:category text="Visual Arts" />
+		</itunes:category>
+		<itunes:category text="Technology">
+			<itunes:category text="Tech News" />
+		</itunes:category>
+
 		<frequency>
 			Weekly
 		</frequency>
@@ -140,11 +145,12 @@
 				0
 			</comments>
 			<description><![CDATA[{{episode.description }}]]></description>
-				
+
 			<encoded>
 				<![CDATA[{{episode.description }}]]>
 			</encoded>
-			<enclosure url="{{episode.media|get_url}}" length="{{episode.length}}" type="audio/mpeg" />
+			<enclosure url="{{episode.media|get_url}}"
+				length="{{episode.length}}" type="audio/mpeg" />
 			<subtitle>
 				<![CDATA[{{episode.description }}]]>
 			</subtitle>
@@ -156,7 +162,7 @@
 			<itunes:duration>{{episode.duration}}</itunes:duration>
 			<itunes:image href="{{episode.image|get_url}}" />
 			<author>
-			{{author}}
+				{{author}}
 			</author>
 			<duration>
 				{{episode.duration}}
