@@ -16,7 +16,12 @@ https://github.com/bestony/hexo-generator-podcasts/
 2.注意新的`feed.xml`这里是hardcode，以后有空我会解决这个bug，主要nodejs代码不熟。
 
 ```
-<!-- 这个地方hardcode一下 -->
+<!-- 这个地方hardcode一下  -->
+<!-- 这里虽然可以填多个分类，但只有第一个会显示出来 -->
+<!-- 分类对应表看整理 https://help.apple.com/itc/podcasts_connect/#/itc9267a2f12-->
+		<itunes:category text="Society &amp; Culture">
+			<itunes:category text="Personal Journals" />
+		</itunes:category>
     <itunes:category text="Arts">
       <itunes:category text="Design"/>
       <itunes:category text="Visual Arts"/>
