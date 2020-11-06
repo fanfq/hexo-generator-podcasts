@@ -4,6 +4,9 @@ https://podba.se/validate/?url=https://fm.fanfq.com/feed/podcast/
 解决后的效果如下
 ![preview](validate.png)
 
+APPLE PODCAST 验证
+![preview](screencapture-podcastsconnect-apple-my-podcasts-new-feed-2020-11-06-09_29_37.png)
+
 
 原工程
 https://github.com/bestony/hexo-generator-podcasts/
@@ -69,5 +72,8 @@ description: 轻奢，小资，精致，这些词是不是听起来有点耳熟?
 我的播客内容分发站 https://fm.fanfq.com
 
 
+podcast运营交流，技术交流
+
+![preview](WechatIMG4.jpeg)
 
 
