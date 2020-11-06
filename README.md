@@ -17,18 +17,22 @@ https://github.com/bestony/hexo-generator-podcasts/
 
 ```
 <!-- 这个地方hardcode一下  -->
-<!-- 这里虽然可以填多个分类，但只有第一个会显示出来 -->
+<!-- 这个地方hardcode一下  -->
+<!-- 这里虽然可以填多个分类，但只有第一个会显示出来,我的频道目前还没有明确的定位先以日记以及科技为分类 -->
 <!-- 分类对应表看整理 https://help.apple.com/itc/podcasts_connect/#/itc9267a2f12-->
-		<itunes:category text="Society &amp; Culture">
-			<itunes:category text="Personal Journals" />
-		</itunes:category>
-    <itunes:category text="Arts">
-      <itunes:category text="Design"/>
-      <itunes:category text="Visual Arts"/>
-    </itunes:category>
-    <itunes:category text="Technology">
-      <itunes:category text="Tech News"/>
-    </itunes:category>
+<itunes:category text="Society &amp; Culture">
+	<itunes:category text="Personal Journals" />
+</itunes:category>
+
+<itunes:category text="Technology">
+	<itunes:category text="Tech News" />
+</itunes:category>
+
+<!-- bugfix -->
+<copyright>
+	&#169; {{copyright}}
+</copyright>
+
 ```
 
 hexo 的`_config.yml` 这个地方代码失效，因为直接在`feed.xml`hardcode了
